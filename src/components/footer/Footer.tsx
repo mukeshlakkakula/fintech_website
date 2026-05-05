@@ -1,0 +1,94 @@
+"use client";
+
+import Link from "next/link";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "@/components/Icons";
+
+export default function Footer() {
+  return (
+    <footer className="bg-background-secondary text-foreground py-24 border-t border-border">
+      <div className="container mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+          {/* Brand Info */}
+          <div className="col-span-1 md:col-span-1">
+            <Link href="/" className="inline-block mb-8">
+              <div className="relative w-24 h-24">
+                <Image src="/assets/favicon.svg" alt="Elite FinTech Logo" fill className="object-contain" />
+              </div>
+            </Link>
+            <p className="text-foreground opacity-60 leading-relaxed mb-8">
+              Premium fintech and wealth management advisory dedicated to financial precision and vision.
+            </p>
+            <div className="flex gap-4">
+              {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
+                <Link key={i} href="#" className="w-10 h-10 rounded-full bg-slate-200 dark:bg-white/5 flex items-center justify-center hover:bg-brand hover:text-black transition-all">
+                  <Icon className="w-5 h-5" />
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-lg font-bold mb-8 text-brand">Quick Links</h4>
+            <ul className="space-y-4 text-foreground opacity-70">
+              {[
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
+                { name: "Our Services", href: "/services" },
+                { name: "Projects", href: "/projects" },
+                { name: "Join Us", href: "/careers" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-brand transition-colors">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-lg font-bold mb-8 text-brand">Services</h4>
+            <ul className="space-y-4 text-foreground opacity-70">
+              {["FinTech Solutions", "Wealth Management", "Risk Advisory"].map((service) => (
+                <li key={service}>
+                  <Link href="/services" className="hover:text-brand transition-colors">{service}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-lg font-bold mb-8 text-brand">Address</h4>
+            <ul className="space-y-6 text-foreground opacity-70">
+              <li className="flex gap-4">
+                <MapPin className="w-5 h-5 text-brand flex-shrink-0" />
+                <span>Level 15, Platina, G-Block, Bandra Kurla Complex (BKC), Mumbai, Maharashtra - 400051</span>
+              </li>
+              <li className="flex gap-4">
+                <Phone className="w-5 h-5 text-brand flex-shrink-0" />
+                <span>+91 22 6677 8899</span>
+              </li>
+              <li className="flex gap-4">
+                <Mail className="w-5 h-5 text-brand flex-shrink-0" />
+                <span>advisory@elitefintech.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-8 text-foreground opacity-50 text-sm">
+          <p>© {new Date().getFullYear()} Elite FinTech Consulting. All Rights Reserved.</p>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="hover:text-foreground">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-foreground">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
