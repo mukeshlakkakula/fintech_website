@@ -28,15 +28,18 @@ export default function Portfolio() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8">
           <div className="max-w-2xl text-center md:text-left">
-            <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Case Studies</span>
+            <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">
+              Case Studies
+            </span>
             <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground leading-tight text-balance">
-              Real Solutions <span className="text-brand italic">Delivered</span> <br />
+              Real Solutions{" "}
+              <span className="text-brand italic">Delivered</span> <br />
               Through Financial Innovation
             </h2>
           </div>
           <Link
-            href="/portfolio"
-            className="px-8 py-4 border-2 border-foreground rounded-full font-bold hover:bg-foreground hover:text-[#ffffff] transition-all flex items-center gap-2"
+            href="/projects"
+            className="px-8 py-4 border-2 border-foreground rounded-full font-bold hover:bg-foreground hover:text-[#000000] transition-all flex items-center gap-2"
           >
             View All Projects
             <ArrowUpRight className="w-5 h-5" />
@@ -59,8 +62,12 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
-              <span className="text-brand font-bold text-sm uppercase tracking-wider">{project.category}</span>
-              <h3 className="text-2xl font-heading font-bold text-foreground mt-2">{project.title}</h3>
+              <span className="text-brand font-bold text-sm uppercase tracking-wider">
+                {project.category}
+              </span>
+              <h3 className="text-2xl font-heading font-bold text-foreground mt-2">
+                {project.title}
+              </h3>
             </div>
           ))}
         </div>
