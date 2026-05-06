@@ -24,7 +24,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative w-16 h-8 rounded-full bg-foreground/10 hover:bg-foreground/20 transition-colors duration-300 focus:outline-none flex items-center px-1"
+      className="relative w-16 h-8 rounded-full bg-background-secondary border border-border transition-colors duration-300 focus:outline-none flex items-center px-1 shadow-inner"
       aria-label="Toggle theme"
     >
       {/* Sliding background/indicator */}

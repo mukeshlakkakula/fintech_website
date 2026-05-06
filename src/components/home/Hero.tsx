@@ -1,73 +1,78 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import Header from "@/components/layout/Header";
 import { ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5; // Slow down to half speed
-    }
-  }, []);
-
   return (
-    <section className="relative w-full h-[60vh] md:h-[95vh] md:p-6 md:pb-0 bg-background">
-      <div className="relative w-full h-full md:rounded-[3rem] overflow-hidden bg-black shadow-2xl">
+    <section className="relative w-full h-auto min-h-[90vh] md:h-[95vh] md:p-6 md:pb-0 bg-background">
+      <div className="relative w-full h-full md:rounded-[3rem] overflow-hidden bg-black shadow-2xl flex flex-col">
         {/* Header inside the rounded container */}
         <Header isOverDark={true} />
 
-        {/* Background Video */}
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          poster="/assets/hero-poster.jpeg"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        >
-          <source src="/assets/herosectionVid.mp4" type="video/mp4" />
-        </video>
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-brand/10 to-transparent pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand/5 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#000000]/70 via-[#000000]/40 to-[#000000]/70 md:bg-gradient-to-r md:from-[#000000]/80 md:via-[#000000]/20 md:to-transparent z-10" />
+        {/* Content Container */}
+        <div className="relative z-20 flex-1 flex flex-col md:flex-row items-center justify-center px-6 md:px-20 pt-32 pb-20 md:pt-20 md:pb-0">
+          {/* Text Content */}
+          <div className="w-full md:w-1/2 text-center md:text-left z-10">
+            <div className="max-w-2xl">
+              <h1 className="text-3xl md:text-6xl lg:text-6xl font-heading font-bold text-[#ffffff] leading-[1.1] tracking-tight text-balance">
+                Elite FinTech &
+                <br />
+                <span className="text-highlight">Wealth Advisory</span>
+              </h1>
 
-        {/* Content */}
-        <div className="relative z-20 h-full flex flex-col justify-center items-center text-center px-6 md:items-start md:text-left md:px-20">
-          <div className="max-w-3xl mt-8 md:mt-20">
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-heading font-bold text-[#ffffff] leading-[1.1] tracking-tight text-balance">
-              Elite FinTech &
-              <br />
-              <span className="text-brand font-bold drop-shadow-sm">Wealth Advisory</span>
-            </h1>
-
-            <div className="mt-10 md:mt-20">
-              <Link
-                href="/consultation"
-                className="inline-flex items-center gap-3 px-8 py-4 md:px-10 md:py-5 text-sm md:text-base font-bold text-[#ffffff] bg-brand hover:bg-brand/90 rounded-full transition-all duration-300 group shadow-xl shadow-brand/20 active:scale-95"
-              >
-                Free Consultation
-                <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
+              <div className="mt-10 md:mt-20">
+                <Link
+                  href="/consultation"
+                  className="btn-primary md:px-10 md:py-5 md:text-base group"
+                >
+                  Free Consultation
+                  <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Side Indicator (Vertical) */}
-        {/* <div className="absolute right-8 top-1/2 -translate-y-1/2 z-20 hidden lg:flex flex-col items-center gap-4 text-white/50 text-xs font-bold">
-          <span>01</span>
-          <div className="w-[2px] h-24 bg-white/20 rounded-full overflow-hidden">
-            <div className="w-full h-1/3 bg-brand" />
+          {/* Floating Image */}
+          <div className="w-full md:w-1/2 flex justify-center items-center mt-16 md:mt-0 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="relative w-full max-w-[500px] aspect-square md:aspect-auto md:h-[70vh]"
+            >
+              <motion.div
+                animate={{
+                  y: [0, -20, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="w-full h-full relative"
+              >
+                <Image
+                  src="/assets/bgremove_hero_img.png"
+                  alt="FinTech Hero Image"
+                  fill
+                  className="object-contain drop-shadow-[0_20px_50px_rgba(0,102,255,0.3)]"
+                  priority
+                />
+              </motion.div>
+
+              {/* Decorative circles behind image */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-brand/5 rounded-full blur-3xl -z-10 animate-pulse" />
+            </motion.div>
           </div>
-          <span>03</span>
-        </div> */}
-
-        {/* Bottom Tab Navigation */}
-
+        </div>
       </div>
     </section>
   );

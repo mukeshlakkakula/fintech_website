@@ -55,7 +55,7 @@ export default function JobCard({ job }: JobCardProps) {
 
       <Link
         href={`/careers/${job.id}`}
-        className="inline-flex items-center justify-center gap-2 px-6 py-2.5 md:px-8 md:py-3 bg-foreground text-background dark:bg-white dark:text-black rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-brand hover:text-black transition-all duration-300 group/btn"
+        className="inline-flex items-center justify-center gap-2 px-6 py-2.5 md:px-8 md:py-3 bg-brand text-black rounded-full text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-brand/90 transition-all duration-300 group/btn"
       >
         Apply Now
         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

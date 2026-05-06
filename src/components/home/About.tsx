@@ -28,10 +28,10 @@ export default function About() {
           </div>
           
           <div className="flex-1">
-            <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Precision Advisory</span>
-            <h2 className="text-2xl md:text-5xl font-heading font-bold text-foreground leading-tight mb-6 text-balance">
-              Where Vision Meets <br />
-              <span className="text-brand italic">Capital</span>
+            <span className="text-highlight font-bold tracking-widest uppercase text-sm mb-4 block">Precision Advisory</span>
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-foreground leading-tight">
+              Strategic Advisory for <br />
+              <span className="text-highlight italic">Capital</span>
             </h2>
             <p className="text-lg text-foreground opacity-90 leading-relaxed mb-8">
               Our team of financial experts is dedicated to providing elite solutions for high-stakes environments. We provide premium advisory and technical integration to our clients, ensuring that every asset is managed with the highest standards of precision and discretion.

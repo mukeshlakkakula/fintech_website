@@ -30,10 +30,10 @@ export default function Services() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-brand font-bold tracking-widest uppercase text-sm mb-4 block">Our Expertise</span>
+          <span className="text-highlight font-bold tracking-widest uppercase text-sm mb-4 block">Our Expertise</span>
           <h2 className="text-2xl md:text-5xl font-heading font-bold mb-6 text-balance">
             Financial Excellence With <br />
-            <span className="text-brand italic">Precision & Vision</span>
+            <span className="text-highlight italic">Precision & Vision</span>
           </h2>
           <p className="text-foreground opacity-70 text-lg">
             We deliver high-stakes financial solutions through a precise approach to financial engineering, ensuring your assets stay protected and your returns optimized.

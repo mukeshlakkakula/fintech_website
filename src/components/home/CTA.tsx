@@ -15,7 +15,7 @@ export default function CTA() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 text-center">
         <h2 className="text-5xl md:text-8xl font-heading font-bold text-foreground mb-12 tracking-tighter">
-          LET'S <span className="text-brand italic">TALK</span>
+          LET'S <span className="text-highlight italic">TALK</span>
         </h2>
 
         <Link

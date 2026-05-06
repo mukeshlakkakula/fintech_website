@@ -16,7 +16,7 @@ export default function MeetingRequest({ serviceName }: MeetingRequestProps) {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <span className="text-brand font-bold tracking-widest uppercase text-xs mb-4 block">Request For A Meeting?</span>
+          <span className="text-highlight font-bold tracking-widest uppercase text-xs mb-4 block">Request For A Meeting?</span>
           <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-12">
             Please Send A Request From Below Form; We'll Get Back <br className="hidden md:block" />
             You Very Shortly.
@@ -43,7 +43,7 @@ export default function MeetingRequest({ serviceName }: MeetingRequestProps) {
               placeholder="Phone Number" 
               className="flex-1 px-8 py-4 bg-background rounded-full border border-border/50 text-foreground focus:outline-none focus:border-brand/50"
             />
-            <button className="px-10 py-4 bg-brand text-black rounded-full font-bold uppercase tracking-widest hover:bg-brand/90 transition-all">
+            <button className="btn-primary !px-10 !py-4 uppercase tracking-widest">
               Submit
             </button>
           </form>

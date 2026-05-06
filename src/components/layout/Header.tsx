@@ -91,45 +91,65 @@ export default function Header({ isOverDark = false }: { isOverDark?: boolean })
             <div key={link.name} className="relative group/nav py-4">
               <Link
                 href={link.href}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors ${isOverDark
-                  ? "text-white/90 hover:text-white"
-                  : "text-foreground/80 hover:text-brand"
-                  }`}
+                className={`flex items-center gap-1 text-sm font-medium transition-colors ${
+                  scrolled
+                    ? "text-foreground hover:text-brand"
+                    : isOverDark
+                    ? "text-white/90 hover:text-white"
+                    : "text-foreground/80 hover:text-brand"
+                }`}
               >
                 {link.name}
-                {link.submenus && <ChevronDown className={`w-3.5 h-3.5 opacity-60 transition-transform group-hover/nav:rotate-180 ${isOverDark ? "text-white" : ""}`} />}
+                {link.submenus && (
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 opacity-60 transition-transform group-hover/nav:rotate-180 ${
+                      scrolled ? "text-foreground" : isOverDark ? "text-white" : ""
+                    }`}
+                  />
+                )}
               </Link>
 
               {link.submenus && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-300 z-50">
-                  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden flex min-w-[500px] border border-gray-100">
+                  <div className="bg-background rounded-2xl shadow-2xl overflow-hidden flex min-w-[500px] border border-border">
                     {/* Left Sidebar */}
-                    <div className="w-1/2 bg-gray-50/50 p-4 border-r border-gray-100">
+                    <div className="w-1/2 bg-background-secondary p-4 border-r border-border">
                       {link.submenus.map((sub, idx) => (
                         <div
                           key={sub.title}
                           onMouseEnter={() => setActiveSubmenu(idx)}
-                          className={`group/sub p-4 rounded-xl cursor-pointer transition-all hover:bg-white hover:shadow-md ${activeSubmenu === idx ? "bg-white shadow-md" : ""
-                            }`}
+                          className={`group/sub p-4 rounded-xl cursor-pointer transition-all hover:bg-background hover:shadow-md ${
+                            activeSubmenu === idx ? "bg-background shadow-md" : ""
+                          }`}
                         >
                           <div className="flex items-center justify-between">
-                            <span className={`text-sm font-bold transition-colors ${activeSubmenu === idx ? "text-brand" : "text-gray-900 group-hover/sub:text-brand"}`}>
+                            <span
+                              className={`text-sm font-bold transition-colors ${
+                                activeSubmenu === idx ? "text-brand" : "text-foreground group-hover/sub:text-brand"
+                              }`}
+                            >
                               {sub.title}
                             </span>
-                            <ArrowRight className={`w-4 h-4 transition-all ${activeSubmenu === idx ? "text-brand translate-x-1" : "text-gray-400 group-hover/sub:text-brand group-hover/sub:translate-x-1"}`} />
+                            <ArrowRight
+                              className={`w-4 h-4 transition-all ${
+                                activeSubmenu === idx
+                                  ? "text-brand translate-x-1"
+                                  : "text-foreground/40 group-hover/sub:text-brand group-hover/sub:translate-x-1"
+                              }`}
+                            />
                           </div>
                         </div>
                       ))}
                     </div>
 
                     {/* Right Content Area */}
-                    <div className="w-1/2 p-6 bg-white">
+                    <div className="w-1/2 p-6 bg-background">
                       <div className="grid gap-3">
                         {link.submenus[activeSubmenu].items.map((item) => (
                           <Link
                             key={item}
                             href={`/services/${item.toLowerCase().replace(/ /g, "-")}`}
-                            className="text-sm text-gray-600 hover:text-brand hover:translate-x-1 transition-all flex items-center gap-2"
+                            className="text-sm text-foreground/60 hover:text-brand hover:translate-x-1 transition-all flex items-center gap-2"
                           >
                             <div className="w-1.5 h-1.5 rounded-full bg-brand/20 group-hover:bg-brand" />
                             {item}
@@ -149,7 +169,7 @@ export default function Header({ isOverDark = false }: { isOverDark?: boolean })
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden md:flex items-center px-6 py-2.5 text-sm font-bold text-black dark:text-white bg-brand hover:bg-brand/90 rounded-full transition-all shadow-lg shadow-brand/20"
+            className="hidden md:flex btn-primary !px-6 !py-2.5 !text-sm"
           >
             Contact Us
           </Link>
@@ -246,7 +266,7 @@ export default function Header({ isOverDark = false }: { isOverDark?: boolean })
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-between w-full px-6 py-4 bg-brand rounded-2xl text-[#000000] font-bold group"
+              className="flex items-center justify-between w-full btn-primary !px-6 !py-4 group"
             >
               <span>Get in Touch</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit, EB_Garamond } from "next/font/google";
+import { Outfit, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -7,9 +7,10 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
-const ebGaramond = EB_Garamond({
+const bodoniModa = Bodoni_Moda({
   subsets: ["latin"],
-  variable: "--font-eb-garamond",
+  variable: "--font-bodoni-moda",
+  style: ["normal", "italic"],
 });
 
 import { Providers } from "./providers";
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${ebGaramond.variable} h-full antialiased`}
+      className={`${outfit.variable} ${bodoniModa.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col font-sans bg-background text-foreground">

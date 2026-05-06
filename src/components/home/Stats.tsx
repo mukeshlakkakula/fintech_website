@@ -1,32 +1,33 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { History, Users2, Heart, Trophy } from "lucide-react";
+import { History, Users2, Banknote, Target } from "lucide-react";
 
 const stats = [
   {
-    value: 10,
+    value: 500,
+    prefix: "$",
+    suffix: "M+",
+    label: "Assets Under Advisory",
+    icon: Banknote,
+  },
+  {
+    value: 15,
     suffix: "+",
-    label: "Years of Experience",
+    label: "Years of Excellence",
     icon: History,
   },
   {
-    value: 8,
+    value: 250,
     suffix: "+",
-    label: "Professional Experts",
+    label: "Institutional Clients",
     icon: Users2,
   },
   {
-    value: 12,
-    suffix: "+",
-    label: "Satisfied Customers",
-    icon: Heart,
-  },
-  {
-    value: 100,
+    value: 99.9,
     suffix: "%",
-    label: "Projects Completed",
-    icon: Trophy,
+    label: "Algorithm Precision",
+    icon: Target,
   },
 ];
 
@@ -63,7 +64,7 @@ const StatItem = ({ stat }: { stat: typeof stats[0] }) => {
         setCount(end);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(start));
+        setCount(start);
       }
     }, 16);
 
@@ -73,10 +74,10 @@ const StatItem = ({ stat }: { stat: typeof stats[0] }) => {
   return (
     <div ref={countRef} className="flex flex-col items-center text-center group">
       <div className="w-16 h-16 rounded-2xl bg-brand/10 flex items-center justify-center mb-6 group-hover:bg-brand transition-colors duration-500">
-        <stat.icon className="w-8 h-8 text-brand group-hover:text-[#000000] transition-colors duration-500" />
+        <stat.icon className="w-8 h-8 text-brand group-hover:text-black transition-colors duration-500" />
       </div>
-      <span className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-2">
-        {count}{stat.suffix}
+      <span className="text-4xl md:text-5xl font-heading font-bold text-highlight mb-2">
+        {"prefix" in stat && stat.prefix}{stat.value % 1 === 0 ? Math.floor(count) : count.toFixed(1)}{stat.suffix}
       </span>
       <span className="text-sm font-bold uppercase tracking-widest text-foreground opacity-80 leading-relaxed">
         {stat.label}

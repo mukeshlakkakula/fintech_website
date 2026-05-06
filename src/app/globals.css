@@ -8,7 +8,7 @@
   --black: #000000;
   --border: #e2e8f0;
   --card: #ffffff;
-  --brand: #53c6cc;
+  --brand: #0066FF;
   color-scheme: light;
 }
 
@@ -26,19 +26,21 @@
   --color-background-secondary: var(--background-secondary);
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
-  --color-brand-muted: rgba(83, 198, 204, 0.2);
+  --color-brand-muted: rgba(0, 102, 255, 0.1);
   --color-white-pure: var(--white);
   --color-black-pure: var(--black);
   --color-border: var(--border);
   --color-card: var(--card);
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-eb-garamond), serif;
+  --font-heading: var(--font-bodoni-moda), serif;
 }
 
 @variant dark (&:where(.dark, .dark *));
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 body {
@@ -68,4 +70,25 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+.text-highlight {
+  @apply text-brand font-bold;
+  background: linear-gradient(135deg, var(--brand) 0%, #00a2ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(0, 102, 255, 0.2));
+}
+
+.btn-primary {
+  @apply inline-flex items-center gap-3 px-8 py-4 text-sm font-bold rounded-full transition-all duration-300 active:scale-95 shadow-xl;
+  background: linear-gradient(135deg, var(--brand) 0%, #0052FF 100%);
+  color: white;
+  box-shadow: 0 10px 20px -10px rgba(0, 102, 255, 0.4);
+}
+
+.btn-primary:hover {
+  @apply -translate-y-0.5;
+  box-shadow: 0 15px 30px -12px rgba(0, 102, 255, 0.6);
+  filter: brightness(1.1);
 }
