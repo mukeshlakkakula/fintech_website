@@ -169,7 +169,7 @@ export default function Header({ isOverDark = false }: { isOverDark?: boolean })
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden md:flex btn-primary !px-6 !py-2.5 !text-sm"
+            className="!hidden lg:!inline-flex btn-primary !px-6 !py-2.5 !text-sm"
           >
             Contact Us
           </Link>
@@ -177,8 +177,13 @@ export default function Header({ isOverDark = false }: { isOverDark?: boolean })
           {/* Mobile menu toggle */}
           <button
             onClick={() => setIsOpen(true)}
-            className={`lg:hidden p-2 transition-colors ${isOverDark ? "text-white hover:text-brand" : "text-foreground hover:text-brand"
-              }`}
+            className={`lg:hidden p-2 transition-colors ${
+              scrolled
+                ? "text-foreground hover:text-brand"
+                : isOverDark
+                ? "text-white hover:text-brand"
+                : "text-foreground hover:text-brand"
+            }`}
           >
             <Menu className="w-6 h-6" />
           </button>

@@ -36,7 +36,7 @@ export default function Clients() {
                 src={logo}
                 alt={`Client Logo ${index + 1}`}
                 fill
-                className="object-contain"
+                className="object-contain dark:invert-0 invert"
               />
             </div>
           ))}

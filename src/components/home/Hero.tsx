@@ -30,7 +30,7 @@ export default function Hero() {
 
               <div className="mt-10 md:mt-20">
                 <Link
-                  href="/consultation"
+                  href="/contact"
                   className="btn-primary md:px-10 md:py-5 md:text-base group"
                 >
                   Free Consultation
